@@ -154,6 +154,16 @@ cannot be tested without assuming a role and having access with the AWS CLI.
 So for these files, example JSON responses have been put in 
 place of the AWS Commands.
 
+The example JSON response is in the folder jest/mockfunction/ec2-examples.json
+
+:warning: This file will not exist in the github repository due to the sensitivity of the data :warning:
+
+- If you would like to have the same file, then please run the following aws cli command from the root directory:
+
+```
+aws ec2 describe-instances > jest/mockfunction/ec2-examples.json
+```
+
 Testing can be done by running the following command:
 
 ```
