@@ -158,7 +158,7 @@ The example JSON response is in the folder jest/mockfunction/ec2-examples.json
 
 :warning: This file will not exist in the github repository due to the sensitivity of the data :warning:
 
-- If you would like to have the same file, then please run the following aws cli command from the root directory:
+- If you would like to have the same file, then please run the following aws cli command from the root directory on an environment/account you would like the test data to come from:
 
 ```
 aws ec2 describe-instances > jest/mockfunction/ec2-examples.json
