@@ -70,11 +70,11 @@ Total Charges First Month
 
  Total Per Month After First Month Estimate 
   - All 100 Instances tagged but 40% a month Running/Terminate still occur.
-```
+
  - Skip Patching Lambda - $0.20
 
 Total Per Month - $0.20
-
+```
 ## Usage
 
 :warning: This Tool will need to be invoked Manually and will Tag running instances that have the following tags: :warning:
