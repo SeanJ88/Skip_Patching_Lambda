@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "serverless": "^2.66.2"
+  },
+  "devDependencies": {
+    "jest": "^27.4.2",
+    "json-schema": ">=0.4.0",
+    "serverless-cloudformation-sub-variables": "^0.2.1",
+    "serverless-plugin-lambda-dead-letter": "^1.2.1"
+  },
+  "name": "skip-patching-from-criterion-lambda-project",
+  "description": "<!-- title: 'AWS NodeJS Skip Patching Lambda' description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework. The Lambda will Take in a JSON Event 'Enabled or Disabled' and will Auto Create a Tag on All EC2 Instances that Match a Certain Criterion. This tag will let SSM know wether to skip the Patching Window for these Instances or not' layout: Doc framework: v2 platform: AWS language: nodeJS priority: 1 authorLink: 'https://github.com/SeanJ88' authorName: 'Sean Jones.' companyName: 'DevOpsGroup' -->",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/jest/setEnvVars.js"
+    ]
+  },
+  "keywords": [],
+  "author": "Sean Jones",
+  "Company": "DevOpsGroup",
+  "license": "ISC"
+}
