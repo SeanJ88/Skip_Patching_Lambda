@@ -77,18 +77,21 @@ Total Per Month - $0.20
 
 ## Usage
 
-:warning: This Tool will only Automatically Subscribe, Tag, Create and Recover newly running instances that have the following tags: :warning:
+:warning: This Tool will need to be invoked Manually and will Tag running instances that have the following tags: :warning:
 
-- dd-monitoring - true
-- dd-mute - false
+- MS-CC
+- MS-GS
+- MS-HA-KS
+- MS-KS
 
-If the above is set to any different, then the Lambda will not subscribe and auto add tags/alarms to the instance.
+The Instances will be tagged with:
 
-The functionality of the Lambda also only listens to newly 'running' or 'terminated' instances.
+- [{"Key": "Skip_Patching", "Value": ${value}}]`
 
-The Lambda will not auto tag Instances that are currently in a running state before the Lambda deployment.
+- value being 'Enabled' or 'Disabled'
 
-If you want current instances to have auto recovery enabled then these instances must first be stopped and then put back into a running state for the Lambda to trigger.
+If the tags are set to any different above, then the Lambda will not subscribe and auto add tags to the instance.
+
 ### Prerequisites
 
 - Serverless Framework Installed - v2.x.x or higher
