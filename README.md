@@ -67,9 +67,11 @@ Subscriber Lambda Invocation Cost:
 Total Charges First Month
 ```
  - Skip Patching Lambda - $0.20
+```
 
- Total Per Month After First Month Estimate 
-  - All 100 Instances tagged but 40% a month Running/Terminate still occur.
+Total Per Month After First Month Estimate 
+```
+ - All 100 Instances tagged but 40% a month Running/Terminate still occur.
 
  - Skip Patching Lambda - $0.20
 
