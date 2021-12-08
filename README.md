@@ -119,6 +119,20 @@ I'd recommend if you have an Int account and Dev account in the same account. Th
 
 After successful deployment, Invocation can either be done through the AWS Console on the Lambda Test event console.
 
+If you are invoking via the console then please make sure the test event matches the following JSON:
+
+```
+{
+    "state": "Enabled"
+}
+```
+OR
+```
+{
+    "state": "Disabled"
+}
+```
+
 Or you can invoke it locally from your machine by running the following command and passing the JSON test files
 
 - Enabled.json
