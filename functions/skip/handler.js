@@ -8,42 +8,45 @@ const tags = process.env.TAGS
 module.exports.skip = async (event, context) => {
   try {
 
-    const value = event['state']
+    if (event['state']) {
 
-    console.info('Setting Skip Patching to: %s', value)
+      const value = event['state']
 
-    var roles = tags.split(',')
+      console.info('Setting Skip Patching to: %s', value)
 
-    for (const tag of roles) {
+      var roles = tags.split(',')
 
-      const add_tag = `[{"Key": "Skip_Patching", "Value": ${value}}]`
+      for (const tag of roles) {
 
-      var params = {
-        Filters: [
-          {
-            'Name': 'tag:Role',
-            'Values': [
-              tag
-            ]
-          },
-        ]
-      };
+        const add_tag = `[{"Key": "Skip_Patching", "Value": ${value}}]`
 
-      var instances = await ec2.describeInstances(params).promise();
+        var params = {
+          Filters: [
+            {
+              'Name': 'tag:Role',
+              'Values': [
+                tag
+              ]
+            },
+          ]
+        };
 
-      for (const instance of instances['Reservations']) {
+        var instances = await ec2.describeInstances(params).promise();
 
-        var instance_id = instance['Instances'][0]['InstanceId']
+        for (const instance of instances['Reservations']) {
 
-        var params = { Resources: [instance_id], Tags: add_tag }
+          var instance_id = instance['Instances'][0]['InstanceId']
 
-        await ec2.createTags(params).promise();
+          var params = { Resources: [instance_id], Tags: add_tag }
 
-        console.info('Created Tag on Instance ID: %s with Role: %s with Tag: $s', instance_id, tag, add_tag)
+          await ec2.createTags(params).promise();
+
+          console.info('Created Tag on Instance ID: %s with Role: %s with Tag: $s', instance_id, tag, add_tag)
+        }
       }
-    }
 
-    return console.info('All Required Instances Has set Skip Patching To: %s', value)
+      return console.info('All Required Instances Has set Skip Patching To: %s', value)
+    }
 
   } catch (e) {
     return console.error('Failure Creating/Updating Skip Patching Tags: %s', e)

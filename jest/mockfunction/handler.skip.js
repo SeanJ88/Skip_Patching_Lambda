@@ -13,6 +13,8 @@ module.exports.skip = async (event, context) => {
   try {
     console.info(event)
 
+    if (event['state']) {
+
     const value = event['state']
 
     console.info('Setting Skip Patching to: %s', value)
@@ -51,6 +53,7 @@ module.exports.skip = async (event, context) => {
     }
 
     return console.info('All Required Instances Has set Skip Patching To: %s', value)
+  }
 
   } catch (e) {
     return console.error('Failure Creating/Updating Skip Patching Tags: %s', e)
